@@ -1,0 +1,39 @@
+---
+import '@/styles/globals.css'
+ 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+   <!-- High priority -->
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   
+    <!-- Basic document information -->
+   <title>Seymec - {title}</title>
+   <meta name="description" content={ description } />
+   <meta name="author" content="Seymec S.A.S" />
+   <meta name="generator" content={ Astro.generator } />
+
+   <!-- Favicon and important resources -->
+   <link rel="icon" type="image/svg+xml" href="/logo-texto.svg" />
+   <link rel="alternate icon" href="/favicon.ico" />
+
+   <!-- Social media metadata -->
+   <meta property="og:title" content={ title } />
+   <meta property="og:description" content={ description } />
+   <meta property="og:image" content="/logo-redes.png" /> 
+   <meta property="og:url" content="www.seymec.com.co " />
+   <meta property="og:type" content="website" />
+   <meta name="twitter:card" content="summary_large_image" />
+   <meta name="twitter:title" content={ title } />
+   <meta name="twitter:description" content={ description } />
+   <meta name="twitter:image" content="/logo-redes.png" />
+
+  <!-- External styles and fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
