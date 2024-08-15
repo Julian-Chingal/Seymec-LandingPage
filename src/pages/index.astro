@@ -1,15 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 // components 
-import Carrousell from '@/components/landing/Carrousell.astro';
+import {Carousel} from '../components/landing/Carousel';
 import MoreInfo from '@/components/landing/MoreInfo.astro';
 import Contact from '@/components/landing/Contact.astro';
 import About from '@/components/landing/About.astro';
+import Footer from '@/components/landing/Footer.astro';
 
 ---
 <Layout title="Index">
-    <Carrousell />
+    <Carousel client:load />
     <MoreInfo />   
     <About /> 
     <Contact />
+    <Footer />
 </Layout>
