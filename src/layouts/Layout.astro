@@ -4,6 +4,7 @@ import '@fontsource-variable/rubik';
 // components
 import Head from '@/components/Head.astro'
 import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer';
 
 interface Props {
   title?: string;
@@ -19,5 +20,6 @@ const { title, description } = Astro.props;
 	<body>
 		<Header client:load/>
 		<slot />
+		<Footer />
 	</body>
 </html>

@@ -1,0 +1,58 @@
+---
+// Configuración dinámica para redes sociales, contacto y horarios
+const socialLinks = [
+  { name: "Google", href: "https://google.com", icon: "google.svg", color: "#DB4437"},
+  { name: "Facebook", href: "https://facebook.com", icon: "facebook.svg", color: "#4267B2"},
+  { name: "Instagram", href: "https://instagram.com", icon: "instagram.svg", color: "#E1306C" },
+];
+
+const contactInfo = [
+  { label: "Teléfono", value: "(123) 456 7890", href: "tel:1234567890" },
+  { label: "Email", value: "info@codestitch.com", href: "mailto:info@codestitch.com" },
+];
+
+const address = [
+  { label: "Dirección", value: "123 Avenue Street, Oak Harbor, WA 98101" },
+];
+
+const openingHours = [
+  { label: "Martes, Jueves, Viernes", value: "9am-6pm" },
+  { label: "Cerrado para almuerzo", value: "12pm-2pm" },
+];
+---
+
+<footer class="p-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Logo y redes sociales -->
+      <div class="space-y-4">
+        <img class="h-8" src="/logo.svg" alt="Logo" />
+        <div class="flex space-x-4">
+          {socialLinks.map(link => (
+            <a href={link.href} aria-label={`Visitar perfil de ${link.name}`} class="p-2 bg-gray-600 rounded-full hover:bg-primary">
+              <img src={`/social/${link.icon}`} alt={link.name} class="h-6 w-6" />
+            </a>
+          ))}
+        </div>
+      </div>
+  
+      <!-- Información de contacto -->
+      <ul class="space-y-2">
+        <li class="font-bold text-lg">Contacto</li>
+        {contactInfo.map(contact => (
+          <li>
+            <a href={contact.href} class="text-gray-300 hover:text-white">{contact.value}</a>
+          </li>
+        ))}
+      </ul>
+  
+      <!-- Dirección y horarios -->
+      <ul class="space-y-2">
+        <li class="font-bold text-lg">Dirección</li>
+        <li>{address[0].value}</li>
+        <li class="font-bold text-lg mt-4">Horarios de atención</li>
+        {openingHours.map(hour => (
+          <li>{hour.label}: {hour.value}</li>
+        ))}
+      </ul>
+    </div>
+  </footer>

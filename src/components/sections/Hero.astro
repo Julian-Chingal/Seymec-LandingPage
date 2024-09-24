@@ -3,41 +3,30 @@ const imageSrc = "/img/hero.jpg";
 // const imageSrc = "https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Ftherapy.jpg";
 
 ---
+<section class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 text-left py-24 lg:py-32 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/img/hero.jpg'); opacity: 0.9;">
+  <!-- Overlay para agregar transparencia oscura -->
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div> 
 
-<section class="relative overflow-hidden bg-gray-100 dark:bg-gray-800 text-center lg:text-left py-24  lg:py-32">
-  <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 lg:px-8 gap-4">
+  <div class="relative container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 lg:px-8 gap-4">
     
     <!-- Content -->
-    <div class="lg:order-2 max-w-lg lg:max-w-xl text-center lg:text-left space-y-6">
-      <span class="text-primary uppercase font-bold tracking-wider">
+    <div class="lg:order-2 max-w-lg lg:max-w-xl text-center lg:text-left space-y-6 z-10">
+      <span class="text-primary text-xl uppercase font-bold tracking-wider">
         Servicio Profesional
       </span>
-      <h1 class="text-gray-900 dark:text-gray-100 font-extrabold text-2xl md:text-5xl lg:text-6xl leading-tight">
-        Transformamos tus ideas en soluciones inovadoras
+      <h1 class="text-slate-50 font-extrabold text-2xl md:text-5xl lg:text-6xl leading-tight">
+        Transformamos tus ideas en soluciones innovadoras
       </h1>
-      <p class="text-gray-700 mb-10 dark:text-gray-300 max-w-md mx-auto lg:mx-0 text-lg leading-relaxed">
-        Especialistas en diseño, desarrollo y optimización de sistemas electricos y electrónicos para la industria moderna
+      <p class="text-slate-100 max-w-md mx-auto lg:mx-0 text-lg leading-relaxed">
+        Especialistas en diseño, desarrollo y optimización de sistemas eléctricos y electrónicos para la industria moderna.
       </p>
-      <a href="#" class="bg-primary text-secondary px-6 py-3 rounded-lg font-bold hover:bg-primary transition-all duration-300">
-        Contacto 
-      </a>
+      
     </div>
-
-    <!-- Hero Image -->
-    <picture class="mt-8 lg:mt-0 max-w-md lg:max-w-xl w-full lg:order-1 relative">
-      <source media="(max-width: 600px)" srcset={imageSrc} />
-      <source media="(min-width: 601px)" srcset={imageSrc} />
-      <source media="(min-width: 1024px)" srcset={imageSrc} />
-      <img
-        src={imageSrc}
-        alt="Therapy session"
-        class="w-full h-full object-cover rounded-tl-full rounded-br-full shadow-lg"
-      />
-    </picture>
   </div>
 
-  <!-- SVG Wave -->
-  <svg class="cs-wave w-full absolute bottom-0 left-0" width="1920" height="179" viewBox="0 0 1920 179" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wave -->
+  <!-- <svg class="cs-wave w-full absolute bottom-0 left-0 z-10" width="1920" height="179" viewBox="0 0 1920 179" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M1920 179V91.3463C1835.33 91.3463 1715.47 76.615 1549.2 32.9521C1299.48 -32.3214 1132.77 12.1006 947.32 61.5167C810.762 97.9044 664.042 137 466.533 137C331.607 137 256.468 123.447 188.082 111.113C130.974 100.812 78.5746 91.3609 0 91.3609V179H1920Z" fill="white"/>
-  </svg>
+  </svg> -->
 </section>
