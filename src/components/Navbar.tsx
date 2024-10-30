@@ -1,16 +1,36 @@
-import { useState } from "react";
-import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
+import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 
-const navbarItems = [
-  { title: "Home", url: "/" },
-  { title: "Proyectos", url: "/" },
-  { title: "Nosotros", url: "/" },
-  { title: "Contacto", url: "/" },
+const navigation = [
+  { title: "Home", path: "/" },
+  { title: "Servicios", path: "/services" },
+  { title: "Nosotros", path: "/about" },
+  { title: "Contacto", path: "/" },
 ];
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".menu-btn") && !target.closest(".nav-menu")) setMenuOpen(false);
+    };
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -21,58 +41,50 @@ export function Navbar() {
     }
   };
 
+  const logoSrc = scrolled ? "/logo.svg" : "/logoDark.svg";
+
   return (
-    <header>
-      <nav className="flex p-2 h-16 w-[90%] mx-auto overflow-hidden max-w-screen-xl items-center justify-between ">
-        
-      <Button
-          variant={"ghost"}
-          onClick={() => setOpen(!open)}
-          className={`cursor-pointer transition-all ${open ? "" : ""} md:hidden`}
-        >
-          <i className="fa-solid fa-bars fa-xl"></i>
-        </Button>
+    <header
+      className={`fixed top-0 z-50 transition-all duration-300 w-full ${
+        scrolled ? "bg-white text-black" : "bg-transparent text-white"
+      }`}
+    >
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center p-4 lg:flex-row">
+        <div>
+          <img src={logoSrc} alt="Logo principal" className="w-auto h-16" />
+        </div>
 
-        <a href="" className="max-w-[140px]">
-          <img src="/logo-texto.svg" alt="" className="w-40" />
-        </a>
-        <div
-          className={`fixed inset-0 bg-foreground/60 transition-transform ${
-            open ? "translate-x-0" : "translate-x-full"
-          } md:static md:translate-x-0 md:bg-none`}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="menu-btn lg:hidden text-cyan-400"
         >
-          <Button
-          variant={"outline"}
-            onClick={() => setOpen(!open)}
-            className="cursor-pointer border-none bg-background absolute z-30 md:hidden  transition-all"
-          >
-            <i className="fa-solid fa-xmark fa-xl"></i>
-          </Button>
+          {menuOpen ? "✕" : "☰"}
+        </button>
 
-          <ul className="absolute inset-x-0 p-6 h-full w-[40%] bg-background rounded-md  text-center md:w-max  md-p-0 md:flex md:gap-4 md:static">
-            {navbarItems.map((item, index) => (
-              <li key={index} className="w-ful pt-5 md:pt-0 border-b-2 border-background hover:border-b-primary hover:text-primary">
-                <a href="" className="hover:text-primary">
-                  {item.title}
-                </a>
+        <nav
+          className={`nav-menu fixed top-0 right-0 w-3/4 h-full p-4 transition-transform transform ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          } lg:static lg:translate-x-0 lg:flex lg:items-center lg:gap-8 lg:w-auto lg:h-auto ${
+            menuOpen ? "bg-white text-black" : "lg:bg-transparent"
+          }`}
+        >
+          <ul className="flex flex-col gap-8 lg:flex-row lg:gap-8">
+            {navigation.map((item, index) => (
+              <li key={index} className="hover:text-primary text-center">
+                <a href={item.path}>{item.title}</a>
               </li>
             ))}
           </ul>
-        </div>
-        <Button
-            variant={"outline"}
-            className="px-4 mt-2 border-none " 
-            onClick={toggleDarkMode}
-          >
-            <i
-              className={`fa-solid fa-xl transition-transform duration-300 ${
-                isDarkMode
-                  ? "fa-sun text-primary rotate-180"
-                  : "fa-moon rotate-0"
-              }`}
-            />
-          </Button>
-      </nav>
+
+          {/* <button>
+            {isDarkMode ? (
+              <SunIcon onClick={toggleDarkMode} className="w-6 h-6 text-yellow-400" />
+            ) : (
+              <MoonIcon onClick={toggleDarkMode} className="w-6 h-6 text-primary" />
+            )}
+          </button> */}
+        </nav>
+      </div>
     </header>
   );
 }

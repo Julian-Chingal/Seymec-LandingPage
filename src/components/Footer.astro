@@ -1,1 +1,102 @@
-<footer><h1>footer</h1></footer>
+---
+const contactLinks = [
+  { name: "proyectos@seymec.com.co", href: "", icon: "/src/icons/email.svg" },
+  { name: "312 123 4567", href: "", icon: "/src/icons/phone.svg" },
+  {
+    name: "Calle 81A 75B 06, Barranquilla, Colombia",
+    href: "",
+    icon: "/src/icons/location.svg",
+  },
+];
+
+const socialLinks = [
+  { name: "Facebook", href: "#", icon: "/src/icons/facebook.svg" },
+  { name: "Instagram", href: "#", icon: "/src/icons/instagram.svg" },
+];
+---
+
+<footer>
+  <div class="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div>
+        <div class="flex justify-center text-primary sm:justify-start">
+          <img src="logo.svg" alt="" class="w-auto h-20" />
+        </div>
+
+        <p
+          class="mt-6 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left"
+        >
+          Brindamos servicios integrales de gestión de proyectos, ingeniería,
+          suministros, construcción y mantenimiento.
+        </p>
+
+        <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
+          {
+            socialLinks.map((s) => (
+              <li>
+                <a
+                  href="#"
+                  rel="noreferrer"
+                  target="_blank"
+                  class="text-primary transition hover:text-primary/75"
+                >
+                  <img
+                    src={s.icon}
+                    alt={s.name}
+                    class="w-auto h-5 text-primary"
+                  />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
+      >
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-bold">Nosotros</p>
+
+          <ul class="mt-8 space-y-4 text-sm">info</ul>
+        </div>
+
+        <div class="text-center sm:text-left">
+          <p class="text-lg font-bold">Contactanos</p>
+
+          <ul class="mt-8 space-y-4 text-sm">
+            {
+              contactLinks.map((c) => (
+                <li>
+                  <a
+                    href=""
+                    class="flex items-center  gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
+                  >
+                    <img
+                      src={c.icon}
+                      alt=""
+                      class="w-auto h-5 "
+                    />
+                    {c.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-secondary pt-6">
+      <div class="text-center sm:flex sm:justify-between sm:text-left">
+        <p class="text-sm text-secondary">
+          <span class="block sm:inline">All rights reserved.</span>
+        </p>
+
+        <p class="mt-4 text-sm text-secondary sm:order-first sm:mt-0">
+          &copy; 2022 Seymec
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

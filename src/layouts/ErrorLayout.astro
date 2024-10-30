@@ -1,8 +1,5 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
-import '@fontsource/poppins';
-import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer.astro";
 
 interface Props {
   title?: string;
@@ -15,13 +12,9 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="es">
   <BaseHead title={title} description={description} />
-  <body class="transition-colors duration-300 ease-in-out">
-    <Navbar client:load />
-
-    <main class="">
+  <body>
+    <main>
       <slot />
     </main>
-
-    <Footer/>
   </body>
 </html>
