@@ -1,100 +1,68 @@
 ---
-const contactLinks = [
-  { name: "proyectos@seymec.com.co", href: "", icon: "/src/icons/email.svg" },
-  { name: "312 123 4567", href: "", icon: "/src/icons/phone.svg" },
-  {
-    name: "Calle 81A 75B 06, Barranquilla, Colombia",
-    href: "",
-    icon: "/src/icons/location.svg",
-  },
-];
-
-const socialLinks = [
-  { name: "Facebook", href: "#", icon: "/src/icons/facebook.svg" },
-  { name: "Instagram", href: "#", icon: "/src/icons/instagram.svg" },
-];
+import { contactMethods, socialLinks, services } from '@/data'
 ---
 
-<footer>
+<footer class="bg-[#1f2124]">
   <div class="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <div>
-        <div class="flex justify-center text-primary sm:justify-start">
-          <img src="logo.svg" alt="" class="w-auto h-20" />
+    <div class="grid gap-8 lg:flex lg:justify-between lg:items-start">
+      <!-- Logo y Descripción -->
+      <div class="lg:max-w-md">
+        <div class="flex justify-center text-primary lg:justify-start">
+          <img src="/logoDark.svg" alt="Logo" class="w-auto h-16 lg:h-20" />
         </div>
 
-        <p
-          class="mt-6 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left"
-        >
-          Brindamos servicios integrales de gestión de proyectos, ingeniería,
-          suministros, construcción y mantenimiento.
+        <p class="mt-6 text-center text-white leading-relaxed sm:max-w-xs sm:text-left">
+          Brindamos servicios integrales de gestión de proyectos, ingeniería, suministros, construcción y mantenimiento.
         </p>
 
-        <ul class="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
-          {
-            socialLinks.map((s) => (
-              <li>
-                <a
-                  href="#"
-                  rel="noreferrer"
-                  target="_blank"
-                  class="text-primary transition hover:text-primary/75"
-                >
-                  <img
-                    src={s.icon}
-                    alt={s.name}
-                    class="w-auto h-5 text-primary"
-                  />
-                </a>
-              </li>
-            ))
-          }
+        <!-- Redes sociales -->
+        <ul class="mt-8 flex justify-center gap-6 sm:justify-start">
+          {socialLinks.map((s) => (
+            <li>
+              <a href={s.href} rel="noreferrer" target="_blank" class="text-white transition hover:text-primary/75">
+                <i class={`${s.icon} text-xl`}></i>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <div
-        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2"
-      >
-        <div class="text-center sm:text-left">
-          <p class="text-lg font-bold">Nosotros</p>
-
-          <ul class="mt-8 space-y-4 text-sm">info</ul>
+      <!-- Listas de Servicios y Contacto -->
+      <div class="grid grid-cols-1 gap-8 text-center text-white sm:grid-cols-2 sm:text-left lg:flex lg:gap-16 lg:justify-end">
+        <!-- Servicios -->
+        <div>
+          <p class="text-lg font-bold">Servicios</p>
+          <ul class="mt-4 space-y-2 text-sm lg:text-base">
+            {services.map((s) => (
+              <li>
+                <a href={s.href} class="hover:text-primary/75">▶︎ {s.title}</a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div class="text-center sm:text-left">
-          <p class="text-lg font-bold">Contactanos</p>
-
-          <ul class="mt-8 space-y-4 text-sm">
-            {
-              contactLinks.map((c) => (
-                <li>
-                  <a
-                    href=""
-                    class="flex items-center  gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                  >
-                    <img
-                      src={c.icon}
-                      alt=""
-                      class="w-auto h-5 "
-                    />
-                    {c.name}
-                  </a>
-                </li>
-              ))
-            }
+        <!-- Contacto -->
+        <div>
+          <p class="text-lg font-bold">Contáctanos</p>
+          <ul class="mt-4 space-y-2 text-sm lg:text-base">
+            {contactMethods.map((c) => (
+              <li>
+                <a class="flex items-center gap-4 justify-center sm:justify-start">
+                  <i class={`${c.icon} text-xl`}></i>
+                  {c.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Derechos reservados -->
     <div class="mt-12 border-t border-secondary pt-6">
-      <div class="text-center sm:flex sm:justify-between sm:text-left">
+      <div class="text-center sm:flex sm:justify-between">
         <p class="text-sm text-secondary">
-          <span class="block sm:inline">All rights reserved.</span>
-        </p>
-
-        <p class="mt-4 text-sm text-secondary sm:order-first sm:mt-0">
-          &copy; 2022 Seymec
+          &copy; 2024 Seymec. All rights reserved.
         </p>
       </div>
     </div>

@@ -15,10 +15,7 @@ const serviciosPorCategoria = [
   {
     categoria: "Estructuras Metálicas",
     imagen: "/images/estructuras-metalicas.jpg", // Asegúrate de tener la imagen en la ruta correspondiente
-    servicios: [
-      { nombre: "Soldaduras" },
-      { nombre: "Obras Civiles" },
-    ],
+    servicios: [{ nombre: "Soldaduras" }, { nombre: "Obras Civiles" }],
   },
   {
     categoria: "Servicios Industriales",
@@ -34,41 +31,49 @@ const serviciosPorCategoria = [
   {
     categoria: "Consultoría y Outsourcing",
     imagen: "/images/consultoria-outsourcing.jpg", // Asegúrate de tener la imagen en la ruta correspondiente
-    servicios: [
-      { nombre: "Consultoría" },
-      { nombre: "Outsourcing" },
-    ],
+    servicios: [{ nombre: "Consultoría" }, { nombre: "Outsourcing" }],
   },
 ];
 ---
 
-<Layout title="Servicios">
-  <Banner title="Nuestros Servicios" description="Tenemos servicios especializados para diferentes áreas industriales" img="/hero.jpg" />
-  
+<Banner
+  title="Nuestros Servicios"
+  description="Tenemos servicios especializados para diferentes áreas industriales"
+  img="/hero.jpg"
+>
   <div class="max-w-6xl mx-auto p-6">
     <div class="text-center mb-8">
-      <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Servicios</h2>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+        Servicios
+      </h2>
       <p class="text-gray-600 dark:text-gray-300">
-        Ofrecemos una amplia gama de servicios especializados para satisfacer las necesidades de nuestros clientes en distintas áreas industriales.
+        Ofrecemos una amplia gama de servicios especializados para satisfacer
+        las necesidades de nuestros clientes en distintas áreas industriales.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {serviciosPorCategoria.map((categoria) => (
-        <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-          <img src={categoria.imagen} alt={categoria.categoria} class="w-full h-32 object-cover rounded-t-lg mb-4" />
-          <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">
-            {categoria.categoria}
-          </h3>
-          <ul class="space-y-2">
-            {categoria.servicios.map((servicio) => (
-              <li class="text-gray-600 dark:text-gray-300">
-                {servicio.nombre}
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      {
+        serviciosPorCategoria.map((categoria) => (
+          <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+            <img
+              src={categoria.imagen}
+              alt={categoria.categoria}
+              class="w-full h-32 object-cover rounded-t-lg mb-4"
+            />
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+              {categoria.categoria}
+            </h3>
+            <ul class="space-y-2">
+              {categoria.servicios.map((servicio) => (
+                <li class="text-gray-600 dark:text-gray-300">
+                  {servicio.nombre}
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
     </div>
   </div>
-</Layout>
+</Banner>

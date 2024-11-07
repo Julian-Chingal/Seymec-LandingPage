@@ -1,20 +1,6 @@
 ---
-import Sections from "./sections.astro";
-
-const contactMethods = [
-        {
-            icon: 'src/icons/email.svg',
-            contact: "proyectos@seymec.com.co"
-        },
-        {
-            icon: 'src/icons/phone.svg',
-            contact: "+57 302 4646 730"
-        },
-        {
-            icon: 'src/icons/location.svg',
-            contact: "calle 81A 75B 06, Barranquilla, Atlántico, Colombia"
-        }
-    ]
+import Sections from "@/components/sections/sections.astro";
+import { contactMethods } from "@/data/contacData";
 ---
 
 <Sections title="Contactos">
@@ -28,14 +14,14 @@ const contactMethods = [
                     Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener. ¡Esperamos tener noticias tuyas! Completa el formulario o envíanos la información de contacto que aparece a continuación.
                 </p>
                 <div>
-                    <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
+                    <ul class="mt-6 flex flex-col gap-x-10 gap-y-6 items-start">
                         {
                             contactMethods.map((item, idx) => (
                                 <li class="flex items-center gap-x-3">
                                     <div class="flex-none text-secondary">
-                                        <img src={item.icon} alt="Icono Contacto" class="w-auto h-5">
+                                        <i class={`${item.icon} w-auto h5`}></i>
                                     </div>
-                                    <p>{item.contact}</p>
+                                    <p>{item.name}</p>
                                 </li>
                             ))
                         }

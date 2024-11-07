@@ -1,0 +1,17 @@
+---
+import Banner from "@/components/landing/Banner.astro";
+import { services } from "@/data/servicesData";
+
+const data = services.find((service) => service.title === "Construcción y Obras Civiles");
+---
+  {data ? (
+    <Banner
+      title={data.title}
+      img={data.img}
+    >
+      <h1>aqui los servicios de electronica e instrumentacion</h1>
+    </Banner>
+  ) : (
+    <p>Service not found</p>
+  )}
+

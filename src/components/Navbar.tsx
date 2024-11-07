@@ -16,11 +16,12 @@ export function Navbar() {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (!target.closest(".menu-btn") && !target.closest(".nav-menu")) setMenuOpen(false);
+      if (!target.closest(".menu-btn") && !target.closest(".nav-menu"))
+        setMenuOpen(false);
     };
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 90);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -51,7 +52,9 @@ export function Navbar() {
     >
       <div className="max-w-screen-xl mx-auto flex justify-between items-center p-4 lg:flex-row">
         <div>
-          <img src={logoSrc} alt="Logo principal" className="w-auto h-16" />
+          <a href="/" className="cursor-pointer">
+            <img src={logoSrc} alt="Logo principal" className="w-auto h-16" />
+          </a>
         </div>
 
         <button

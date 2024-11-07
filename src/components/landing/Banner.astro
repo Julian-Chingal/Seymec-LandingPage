@@ -1,23 +1,50 @@
 ---
+import Layout from '@/layouts/Layout.astro';
+
 interface Props {
   title?: string;
   description?: string;
   img?: string;
 }
 
-const { title, description, img } = Astro.props;
+const { title, img } = Astro.props;
 ---
-<section class="relative bg-cover bg-left h-80 mb-10" style=`background-image: url(${img});`>
-    <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
-    <div class="relative z-10 max-w-screen-xl mx-auto px-4 py-28 md:px-8 h-full flex items-center">
-        <div class="space-y-5 max-w-4xl text-left">
-           
-            <h2 class="text-4xl text-white font-extrabold mx-auto md:text-5xl">
-                {title}
-            </h2>
-            <p class="max-w-2xl text-xl text-white">
-                {description}
-            </p>
-        </div>
-    </div>
-</section>
+<Layout title={title}>
+    <section 
+    class="relative h-60 md:h-96 lg:h-[32rem] mb-10 bg-cover bg-center parallax" 
+    style=`background-image: url(${img});`
+  >
+      <div class="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
+      <div class="relative z-10 max-w-screen-xl mx-auto px-4 md:px-8 h-full flex items-center">
+          <div class="space-y-3 md:space-y-5 max-w-4xl text-left">
+              <h2 class="text-3xl md:text-4xl lg:text-5xl text-white font-extrabold">
+                  {title}
+              </h2>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Contenido adicional se puede agregar usando el slot -->
+  <div class="max-w-4xl mx-auto p-6 space-y-8">
+      <slot />
+  </div>
+  
+</Layout>
+
+<style>
+  /* Efecto parallax en el fondo */
+  .parallax {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover; /* Ajusta la imagen para cubrir el fondo */
+  }
+
+  /* Ajustes en móviles para centrar y evitar recorte */
+  @media (max-width: 768px) {
+    .parallax {
+      background-position: center top;
+      background-size: contain; /* Usa contain para evitar recortes en móviles */
+      background-attachment: scroll; /* Desactiva parallax en móviles */
+    }
+  }
+</style>

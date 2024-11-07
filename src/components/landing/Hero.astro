@@ -1,21 +1,20 @@
 ---
-import { Button } from "@/components/ui/button";
+
 ---
-<section class="relative bg-cover bg-left h-screen mb-10" style="background-image: url('/hero.jpg');">
-    <div class="absolute inset-0 to-transparent from-black bg-gradient-to-t"></div>
-    <div class="relative z-10 max-w-screen-xl mx-auto px-4 py-28 md:px-8 h-full flex items-center">
-        <div class="space-y-5 max-w-4xl text-left">
-            <h2 class="text-4xl text-white font-extrabold mx-auto md:text-5xl">
+<section class="relative h-screen mb-10 bg-cover md:bg-cover lg:bg-contain bg-center md:bg-left" style="background-image: url('/hero.webp');">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/85 to-transparent"></div>
+    <div class="relative z-10 max-w-screen-xl mx-auto px-4 py-20 h-full flex items-center">
+        <div class="space-y-5 max-w-md md:max-w-lg lg:max-w-4xl text-left">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl text-white font-extrabold">
                 Transformamos tus ideas en soluciones innovadoras
             </h2>
-            <p class="max-w-2xl text-xl text-white">
+            <p class="text-sm md:text-lg lg:text-xl font-light md:font-normal text-white max-w-sm md:max-w-lg lg:max-w-2xl">
                 Especialistas en diseño, desarrollo y optimización de sistemas eléctricos y electrónicos para la industria moderna.
             </p>
-            
             <div>
-                <Button className="text-white">
+                <button class="shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[#1174B8] px-6 py-2 lg:px-10 lg:py-3 bg-primary rounded-md text-white font-light text-sm lg:text-base transition duration-200 ease-linear">
                     Más información
-                </Button>
+                </button>
             </div>
         </div>
     </div>

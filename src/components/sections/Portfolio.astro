@@ -1,0 +1,20 @@
+---
+import Sections from "./sections.astro";
+import { Card } from "@/components/blocks/card";
+import { services } from "@/data";
+---
+<Sections title="Nuestros Servicios">
+  <div class="grid justify-center  gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
+    {
+      services.map((service) => (
+        <Card
+          href={service.href}
+          title={service.title}
+          description={service.description}
+          image={service.img}
+          client:load
+        />
+      ))
+    }
+  </div>
+</Sections>
