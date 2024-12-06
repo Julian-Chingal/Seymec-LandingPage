@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SunIcon, MoonIcon } from "@radix-ui/react-icons";
 
 const navigation = [
   { title: "Home", path: "/" },
@@ -10,7 +9,6 @@ const navigation = [
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,7 +19,7 @@ export function Navbar() {
     };
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 90);
+      setScrolled(window.scrollY > 250);
     };
 
     document.addEventListener("click", handleClickOutside);
@@ -32,15 +30,6 @@ export function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-  };
 
   const logoSrc = scrolled ? "/logo.svg" : "/logoDark.svg";
 
@@ -53,13 +42,13 @@ export function Navbar() {
       <div className="max-w-screen-xl mx-auto flex justify-between items-center p-4 lg:flex-row">
         <div>
           <a href="/" className="cursor-pointer">
-            <img src={logoSrc} alt="Logo principal" className="w-auto h-16" />
+            <img src={logoSrc} alt="Logo principal" className="w-auto h-20" />
           </a>
         </div>
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="menu-btn lg:hidden text-cyan-400"
+          className="menu-btn lg:hidden text-2xl text-cyan-400"
         >
           {menuOpen ? "✕" : "☰"}
         </button>
@@ -71,21 +60,13 @@ export function Navbar() {
             menuOpen ? "bg-white text-black" : "lg:bg-transparent"
           }`}
         >
-          <ul className="flex flex-col gap-8 lg:flex-row lg:gap-8">
+          <ul className="flex flex-col gap-8 lg:flex-row">
             {navigation.map((item, index) => (
               <li key={index} className="hover:text-primary text-center">
                 <a href={item.path}>{item.title}</a>
               </li>
             ))}
           </ul>
-
-          {/* <button>
-            {isDarkMode ? (
-              <SunIcon onClick={toggleDarkMode} className="w-6 h-6 text-yellow-400" />
-            ) : (
-              <MoonIcon onClick={toggleDarkMode} className="w-6 h-6 text-primary" />
-            )}
-          </button> */}
         </nav>
       </div>
     </header>

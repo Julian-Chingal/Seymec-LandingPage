@@ -1,17 +1,26 @@
 ---
 import Banner from "@/components/landing/Banner.astro";
+import Content from "@/components/landing/Content.astro";
 import { services } from "@/data/servicesData";
 
-const data = services.find((service) => service.title === "Servicios Electromecánicos e Industriales");
----
-  {data ? (
-    <Banner
-      title="Electromecánicos e Industriales"
-      img={data.img}
-    >
-      <h1>aqui los servicios de electronica e instrumentacion</h1>
-    </Banner>
-  ) : (
-    <p>Service not found</p>
-  )}
+const data = services.find(
+  (service) => service.title === "Servicios Electromecánicos e Industriales"
+);
 
+const content = [
+  {
+    title: "electromecanico industrial",
+    description:
+      "Brindamos servicios de mantenimiento y reparación de sistemas electromecánicos para la industria.",
+  },
+  {
+    title: "Outsourcing",
+    description:
+      "Ofrecemos servicios de outsourcing de mantenimiento electromecánico para empresas industriales, con suministro de personal específico para su organización",
+  }
+];
+---
+
+<Banner title={data?.title} img={data?.img}>
+  <Content title={data?.description || "Default Description"} data={content} />
+</Banner>

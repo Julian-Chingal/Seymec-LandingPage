@@ -31,14 +31,14 @@ export const services = [
     {
       href: "/portfolio/servicios-electromecanicos-industriales",
       title: "Servicios Electromecánicos e Industriales",
-      img: "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+      img: "https://img.freepik.com/free-photo/adjusting-heating-valves-residential-building_169016-53761.jpg?t=st=1731549754~exp=1731553354~hmac=757b7c41e4c67978edf7014093eebcd286d1b04dad4dba084bf9c31ae693215d&w=996",
       description:
         "Mantenimiento electromecánico y suministro de personal técnico especializado.",
     },
     {
       href: "/portfolio/obras-civiles",
       title: "Construcción y Obras Civiles",
-      img: "https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80",
+      img: "https://img.freepik.com/free-photo/workers-examining-work_1122-970.jpg?t=st=1731549923~exp=1731553523~hmac=17b9fcafe24bdbe67d2db979b1007e36df5deb1b95b6fc5d5bb83617632dfe37&w=996",
       description:
         "Proyectos de construcción que aseguran calidad desde la planificación hasta la ejecución.",
     },

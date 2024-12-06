@@ -1,18 +1,25 @@
 ---
 import Banner from "@/components/landing/Banner.astro";
+import Content from "@/components/landing/Content.astro";
 import { services } from "@/data/servicesData";
 
-const data = services.find((service) => service.title === "Estructuras Metálicas y Soldadura");
+const data = services.find(
+  (service) => service.title === "Estructuras Metálicas y Soldadura"
+);
+const content = [
+  {
+    title: "Estructuras metálicas",
+    description:
+      "Diseño, fabricación e instalación de estructuras metálicas para la construcción de edificaciones y naves industriales.",
+  },
+  {
+    title: "Soldadura",
+    description:
+      "Servicios de soldadura en general, para la reparación y mantenimiento de estructuras metálicas y maquinaria industrial.",
+  },
+];
 ---
-  {data ? (
-    <Banner
-      title={data.title}
-      img={data.img}
-    >
-      <h1>aqui los servicios de electronica e instrumentacion</h1>
-    </Banner>
-  ) : (
-    <p>Service not found</p>
-  )}
 
-
+<Banner title={data?.title} img={data?.img}>
+  <Content title={data?.description || "Default Description"} data={content} />
+</Banner>

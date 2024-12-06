@@ -1,6 +1,6 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
-import '@fontsource/poppins';
+import "@fontsource/poppins";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer.astro";
 
@@ -17,11 +17,9 @@ const { title, description } = Astro.props;
   <BaseHead title={title} description={description} />
   <body class="transition-colors duration-300 ease-in-out">
     <Navbar client:load />
-
     <main class="">
       <slot />
     </main>
-
-    <Footer/>
+    <Footer />
   </body>
 </html>

@@ -1,18 +1,26 @@
 ---
 import Banner from "@/components/landing/Banner.astro";
+import Content from "@/components/landing/Content.astro";
 import { services } from "@/data/servicesData";
 
-const data = services.find((service) => service.title === "Automatización y Control de Procesos");
+const data = services.find(
+  (service) => service.title === "Automatización y Control de Procesos"
+);
+
+const content = [
+  {
+    title: "Automatización de procesos",
+    description:
+      "Automatizacion de procesos electronicos e industriales, para mejorar la eficiencia y productividad de las empresas.",
+  },
+  {
+    title: "Sistemas contra incendios",
+    description:
+      "Instalación y mantenimiento de sistemas contra incendios, para la protección de vidas y bienes.",
+  },
+];
 ---
-  {data ? (
-    <Banner
-      title={data.title}
-      img={data.img}
-    >
-      <h1>aqui los servicios de electronica e instrumentacion</h1>
-    </Banner>
-  ) : (
-    <p>Service not found</p>
-  )}
 
-
+<Banner title={data?.title} img={data?.img}>
+  <Content title={data?.description || "Default Description"} data={content} />
+</Banner>
